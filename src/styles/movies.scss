@@ -11,9 +11,11 @@
         text-decoration: none;
     }
 
+    // Movie card wrapper
     .wrapper {
         padding: 0 6px;
         margin-bottom: 2rem;
+        width: 100%;
     }
 
     .card, 
@@ -178,12 +180,23 @@
     }
 }
 
+// Movies card container
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    padding: 0 6px;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
 .card {
     position: relative;
     color: #fff;
     text-align: center;
     background: transparent;
     border: none;
+    height: auto;
 
     &.opened {
         & + .hero-card {
