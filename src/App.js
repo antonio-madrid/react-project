@@ -7,6 +7,9 @@ import WatchLater from './components/WatchLater'
 import './app.scss'
 import {API_KEY, ENDPOINT} from "./constants";
 import {useState} from "react";
+import {useRequestMovies} from "./hooks/useRequestMovies";
+import {useSelector} from "react-redux";
+import {movies} from "./data/selectors";
 
 const App = () => {
   const [videoKey, setVideoKey] = useState()
@@ -33,9 +36,12 @@ const App = () => {
 
   const closeCard = null;
 
+  // Avoid multiple requests to the API
+  const {searchMovies, observedNode} = useRequestMovies();
+
   return (
       <div className="App">
-        <Header />
+        <Header searchMovies={searchMovies} />
 
         <div className="container">
           {/*{videoKey ? (*/}
@@ -47,7 +53,7 @@ const App = () => {
           {/*)}*/}
 
           <Routes>
-            <Route path="/" element={<Movies viewTrailer={viewTrailer} closeCard={closeCard}/>}/>
+            <Route path="/" element={<Movies observedNode={observedNode} viewTrailer={() => {}} closeCard={null}/>}/>
             <Route path="/starred" element={<Starred viewTrailer={viewTrailer}/>}/>
             <Route path="/watch-later" element={<WatchLater viewTrailer={viewTrailer}/>}/>
             <Route path="*" element={<h1 className="not-found">Page Not Found</h1>}/>

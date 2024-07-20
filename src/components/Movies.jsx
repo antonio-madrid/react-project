@@ -4,8 +4,7 @@ import {useRequestMovies} from "../hooks/useRequestMovies";
 import {useSelector} from "react-redux";
 import { movies} from "../data/selectors";
 
-const Movies = ({ viewTrailer, closeCard }) => {
-    const {observedNode} = useRequestMovies();
+const Movies = ({ observedNode, viewTrailer, closeCard }) => {
     const movieLists = useSelector(movies)
 
     return (

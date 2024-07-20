@@ -5,7 +5,7 @@ import {useCallback, useEffect, useRef} from "react";
 import {ENDPOINT_DISCOVER, ENDPOINT_SEARCH} from "../constants";
 import {fetchMovies} from "../service/FetchMovieService"
 
-/** Hook for managing movies fetching processes */
+/** Custom Hook for managing movies fetching processes */
 export const useRequestMovies = () => {
     const dispatch = useDispatch();
     const isNextPage = useSelector(hasNextPage)
@@ -37,6 +37,7 @@ export const useRequestMovies = () => {
     /** Encapsulate fetchMoviesWithQuery to add a small delay */
     const searchMovies = useCallback(
         (query) => {
+            // Delay request to avoid DDoS
             setTimeout(() => fetchMoviesWithQuery(query), 500);
         }, [fetchMoviesWithQuery]
     );
@@ -66,7 +67,7 @@ export const useRequestMovies = () => {
         }, [isNextPage, fetchMoviesWithQuery, pageCount, searchQuery]
     )
 
-    /** Initiates movie fetching */
+    /** Initiates first movie fetching */
     useEffect(() => {
         fetchMoviesWithQuery();
     }, []);
