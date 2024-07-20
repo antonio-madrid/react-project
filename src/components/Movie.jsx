@@ -55,7 +55,7 @@ const Movie = ({ movie, viewTrailer, closeCard }) => {
                     ) : (
                         <button type="button" data-testid="remove-watch-later" className="btn btn-light btn-watch-later blue" onClick={() => dispatch(removeFromWatchLater(movie))}><i className="bi bi-check"></i></button>
                     )}
-                    <button type="button" className="btn btn-dark" onClick={() => viewTrailer(movie)}>View Trailer</button>                                                
+                    <button type="button" className="btn btn-dark" onClick={async () => await viewTrailer(movie)}>View Trailer</button>
                 </div>
                 <img className="center-block" src={(movie.poster_path) ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : placeholder} alt="Movie poster" />
             </div>
