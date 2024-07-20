@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 #root {
   height: 100%;
   min-height: 850px;  
@@ -40,5 +44,5 @@
       height: 60vw;
     }
   }
-  
+
 }
