@@ -10,8 +10,6 @@ import TrailerModal from "./components/TrailerModal";
 import {useRequestTrailers} from "./hooks/useRequestTrailers";
 
 const App = () => {
-  const closeCard = null;
-
   // Avoid multiple requests to the API
   const {searchMovies, observedNode} = useRequestMovies();
 
