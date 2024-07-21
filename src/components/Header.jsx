@@ -2,10 +2,25 @@ import {Link, NavLink} from "react-router-dom"
 import {useSelector} from 'react-redux'
 
 import '../styles/header.scss'
+import {DebounceInput} from "react-debounce-input";
+import {useState} from "react";
 
 const Header = ({searchMovies}) => {
 
     const {starredMovies} = useSelector((state) => state.starred)
+
+    const [inputValue, setInputValue] = useState(''); // Step 1
+
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setInputValue(value);
+        searchMovies(value);
+    };
+
+    const clearInput = () => {
+        setInputValue('');
+        searchMovies('');
+    };
 
     return (
         <header>
@@ -26,15 +41,25 @@ const Header = ({searchMovies}) => {
             </nav>
 
             <div className="input-group rounded">
-                    <input type="search" data-testid="search-movies"
-                           onKeyUp={(e) => searchMovies(e.target.value)}
-                           className="form-control rounded"
-                           placeholder="Search movies..."
-                           aria-label="Search movies"
-                           aria-describedby="search-addon"
+                <div className="input-group rounded" style={{position: 'relative'}}>
+                    <DebounceInput
+                        onChange={handleInputChange}
+                        value={inputValue}
+                        className="form-control rounded"
+                        placeholder="REACT INPUT"
+                        aria-label="Search movies"
+                        aria-describedby="search-addon"
+                        debounceTimeout={500}
                     />
+                    {inputValue && (
+                        <a className="close" onClick={clearInput}>
+                            &times;
+                        </a>
+                    )}
+                </div>
             </div>
-        </header>)
+        </header>
+    )
 }
 
 export default Header
