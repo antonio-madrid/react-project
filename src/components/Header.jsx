@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 
 import '../styles/header.scss'
 import {DebounceInput} from "react-debounce-input";
-import {useState} from "react";
+import { useState } from "react";
 
 const Header = ({searchMovies}) => {
     const {starredMovies} = useSelector((state) => state.starred)
@@ -40,7 +40,7 @@ const Header = ({searchMovies}) => {
             </nav>
 
             <div className="input-group rounded">
-                <div className="input-group rounded" style={{position: 'relative'}}>
+                <div className="input-group rounded">
                     <DebounceInput
                         onChange={handleInputChange}
                         value={inputValue}
