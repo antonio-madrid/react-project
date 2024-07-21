@@ -1,5 +1,6 @@
 import moviesSlice, { fetchMovieService } from '../data/moviesSlice'
 import { moviesMock } from './movies.mocks'
+import {fetchMovies} from "../hooks/useRequestMovies";
 
 describe('MovieSlice test', () => {
     

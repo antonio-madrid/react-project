@@ -8,7 +8,7 @@ const TrailerModal = ({trailerKey}) => {
     return (<div>
             <Popup open={!!trailerKey} closeOnDocumentClick>
                 {close => (
-                    <div className='modal-content-wrapper'>
+                    <div className='modal-content-wrapper' data-testid="youtube-player">
                         <div className="modal">
                             <a className="close" onClick={close}>
                                 &times;
