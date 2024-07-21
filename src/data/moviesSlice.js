@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import {fetchMovies} from "../service/FetchMovieService";
+import {fetchMovies} from "../hooks/useRequestMovies";
 
 const moviesSlice = createSlice({
     name: 'movies',

@@ -6,24 +6,23 @@ import {DebounceInput} from "react-debounce-input";
 import {useState} from "react";
 
 const Header = ({searchMovies}) => {
-
     const {starredMovies} = useSelector((state) => state.starred)
-
     const [inputValue, setInputValue] = useState(''); // Step 1
 
+    /** Function which handles the input to show or not the close icon */
     const handleInputChange = (e) => {
         const value = e.target.value;
         setInputValue(value);
         searchMovies(value);
     };
 
+    /** Function which manage the clear search bar action to go back to the index page */
     const clearInput = () => {
         setInputValue('');
         searchMovies('');
     };
 
-    return (
-        <header>
+    return (<header>
             <Link to="/" data-testid="home" onClick={() => searchMovies('')}>
                 <i className="bi bi-film"/>
             </Link>
@@ -31,9 +30,9 @@ const Header = ({searchMovies}) => {
             <nav>
                 <NavLink to="/starred" data-testid="nav-starred" className="nav-starred">
                     {starredMovies.length > 0 ? (<>
-                            <i className="bi bi-star-fill bi-star-fill-white"/>
-                            <sup className="star-number">{starredMovies.length}</sup>
-                        </>) : (<i className="bi bi-star"/>)}
+                        <i className="bi bi-star-fill bi-star-fill-white"/>
+                        <sup className="star-number">{starredMovies.length}</sup>
+                    </>) : (<i className="bi bi-star"/>)}
                 </NavLink>
                 <NavLink to="/watch-later" className="nav-fav">
                     watch later
@@ -51,15 +50,12 @@ const Header = ({searchMovies}) => {
                         aria-describedby="search-addon"
                         debounceTimeout={500}
                     />
-                    {inputValue && (
-                        <a className="close" onClick={clearInput}>
+                    {inputValue && (<a className="close" onClick={clearInput}>
                             &times;
-                        </a>
-                    )}
+                        </a>)}
                 </div>
             </div>
-        </header>
-    )
+        </header>)
 }
 
 export default Header
