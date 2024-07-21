@@ -23,7 +23,7 @@ const Header = ({searchMovies}) => {
     };
 
     return (<header>
-            <Link to="/" data-testid="home" onClick={() => searchMovies('')}>
+            <Link to="/" data-testid="home" onClick={clearInput}>
                 <i className="bi bi-film"/>
             </Link>
 
