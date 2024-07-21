@@ -22,20 +22,17 @@ const Movie = ({ movie, viewTrailer, closeCard }) => {
         <div className="card" onClick={(e) => e.currentTarget.classList.add('opened')} >
             <div className="card-body text-center">
                 <div className="info_panel">
-                    <div className="overview">
-                        <p className="overview-text">{movie.overview}</p>
-                    </div>
-                    <p className="year">{movie.release_date?.substring(0, 4)}</p>
+                    {/*    Favourite icon */}
                     {!starred.starredMovies.map(movie => movie.id).includes(movie.id) ? (
-                        <span className="btn-star" data-testid="starred-link" onClick={() => 
+                        <span className="btn-star" data-testid="starred-link" onClick={() =>
                             dispatch(starMovie({
-                                id: movie.id, 
-                                overview: movie.overview, 
-                                release_date: movie.release_date?.substring(0, 4),
-                                poster_path: movie.poster_path,
-                                title: movie.title
-                            })
-                        )}>
+                                    id: movie.id,
+                                    overview: movie.overview,
+                                    release_date: movie.release_date?.substring(0, 4),
+                                    poster_path: movie.poster_path,
+                                    title: movie.title
+                                })
+                            )}>
                             <i className="bi bi-star" />
                         </span>
                     ) : (
@@ -43,6 +40,14 @@ const Movie = ({ movie, viewTrailer, closeCard }) => {
                             <i className="bi bi-star-fill" data-testid="star-fill" />
                         </span>
                     )}
+                    {/* Movie overview description */}
+                    <div className="overview">
+                        <p className="overview-text">{movie.overview}</p>
+                    </div>
+                    <p className="year">{movie.release_date?.substring(0, 4)}</p>
+
+
+                    {/*    Watch later button */}
                     {!watchLater.watchLaterMovies.map(movie => movie.id).includes(movie.id) ? (
                         <button type="button" data-testid="watch-later" className="btn btn-light btn-watch-later" onClick={() => dispatch(addToWatchLater({
                                 id: movie.id, 
