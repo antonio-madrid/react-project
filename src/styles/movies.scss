@@ -46,12 +46,12 @@
         }
     
         .bi-star:hover {
-            color: #e50914;
+            color: #bfbfbf;
         }
     
         .bi-star-fill {
             margin: 0 5px;
-            color: #e50914;
+            color: white;
         }
     
         .overview {
@@ -79,7 +79,6 @@
                 color: black;
                 filter: blur(0px);
                 -webkit-filter: blur(0px);
-                z-index: 999;
             }
 
             @media (max-width: 720px) {
@@ -131,8 +130,15 @@
     }
     
     .year {
+        font-size: 1.5rem;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        filter: blur(0px);
         padding: 0.2rem 0 0.4rem;
-        font-size: 0.7rem;
         @media (max-width: 480px) {
             position: absolute;
             right: 0;            
@@ -148,6 +154,10 @@
         height: auto;
     }
     .btn-star {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 0;
+        right: -15px;
         width: 50px;
         margin: 0 5px;
         color: #e50914;
