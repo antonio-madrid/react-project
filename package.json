@@ -7,8 +7,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
-    "node-sass": "^8.0.0",
+    "node-sass": "^9.0.0",
     "react": "^18.2.0",
+    "react-debounce-input": "^3.3.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.11.0",
     "react-redux": "^8.0.5",
@@ -40,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-devtools": "^5.3.1"
   }
 }

@@ -184,7 +184,8 @@
 .cardContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2%;
+    //gap: 2%;
+    gap: 20px;
     padding: 0 6px;
     margin-bottom: 2rem;
     width: 100%;
@@ -196,7 +197,6 @@
     text-align: center;
     background: transparent;
     border: none;
-    height: auto;
 
     &.opened {
         & + .hero-card {
