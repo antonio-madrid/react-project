@@ -1,0 +1,300 @@
+.container {
+    padding-top: 100px;
+    color: #fff;
+
+    @media (max-width: 720px) {
+        padding-top: 70px;        
+    }
+
+    a {
+        color: #1CB5E0;
+        text-decoration: none;
+    }
+
+    .wrapper {
+        padding: 0 6px;
+        margin-bottom: 2rem;
+    }
+
+    .card, 
+    .card *,
+    .card + * {
+        -webkit-transition: all .2s ease-in-out;
+        -moz-transition: all .2s ease-in-out;
+        -ms-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+
+        @media (max-width: 480px) {
+            transition: none;
+        }
+    }
+
+    .info_panel {
+        padding: 20% 5% 0;
+        color: #fff;
+        background: transparent;
+    
+        @media (max-width: 720px) {
+            padding: 8% 5% 0;
+        }
+    
+        @media (max-width: 480px) {
+            padding-top: 50%;
+        }
+    
+        .bi-star:hover {
+            color: #e50914;
+        }
+    
+        .bi-star-fill {
+            margin: 0 5px;
+            color: #e50914;
+        }
+    
+        .overview {
+            height: 85px;
+            padding: 5px;
+            margin-bottom: 5px;
+            overflow: scroll;
+            font-size: 0.7rem;
+            line-height: 105%;
+    
+            @media (max-width: 720px) {
+                height: 60px;
+                padding: 3px;
+                margin-bottom: 2px;                    
+            }
+    
+            @media (max-width: 480px) {
+                height: 185px;
+                margin-bottom: 40px;
+                font-size: 1rem;
+                line-height: 115%;
+            }
+        }
+    }    
+
+    .overlay,
+    .info_panel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;            
+        opacity: 0;
+        -webkit-transition: opacity .4s ease-in-out;
+        -moz-transition: opacity .4s ease-in-out;
+        -ms-transition: opacity .4s ease-in-out;
+        -o-transition: opacity .4s ease-in-out;
+        transition: opacity .4s ease-in-out;
+    }
+
+    .overlay {
+        color: #fff;
+        background-color: #111;
+    }
+
+    button.close {
+        display: none;
+    }    
+    
+
+    .card-body {
+        position: relative;
+        padding: 0;
+
+        &:hover {
+            border: 2px solid #fff;            
+        }
+    }
+    
+    .year {
+        padding: 0.2rem 0 0.4rem;
+        font-size: 0.7rem;
+        @media (max-width: 480px) {
+            position: absolute;
+            right: 0;            
+            bottom: 67%;
+            left: 0;
+            padding: 0 0 10px;
+            font-size: 1.2rem;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .btn-star {
+        width: 50px;
+        margin: 0 5px;
+        color: #e50914;
+        cursor: pointer;
+        @media (max-width: 520px) {
+            font-size: 25px;
+        }        
+    }
+    button {
+        display: block;
+        width: 90%;
+        height: 26px;
+        margin: 8px auto;
+        font-size: 0.6rem;
+        text-align: center;
+
+        @media (max-width: 720px) {
+            height: 20px;
+            padding: 2px 2px;
+            font-size: 0.6rem;
+        }
+
+        @media (max-width: 480px) {
+            margin: 15px auto;
+            height: 35px;
+            font-size: 1rem;            
+        }
+
+        &.btn-watch-later {
+        
+            &.blue {
+                color: #fff;
+                background-color: #1CB5E0;
+                border: #1CB5E0;
+            }
+
+            &:hover {
+                color: #fff;
+                background: #1CB5E0;
+                border-color: #1CB5E0;
+            }
+        }
+
+        &.btn-dark:hover {
+            color: #fff;
+            background: #1CB5E0;
+            border-color: #1CB5E0;
+        }
+    }
+}
+
+.card {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    background: transparent;
+    border: none;
+
+    &.opened {
+        & + .hero-card {
+            display: block;
+        }
+    }
+
+    &:hover { 
+        transform: scale(1.1); 
+
+        .overlay {
+            opacity: .8;
+        }
+
+        .info_panel {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &:hover { 
+            transform: none; 
+
+            .overlay {
+                opacity: 0;
+            }
+
+            .info_panel {
+                display: none;
+            }
+        }
+    }
+ 
+
+    h6.title {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        
+        &.mobile-card {
+            display: none;
+        }            
+        @media (max-width: 480px), (hover: none) {
+            display: none;
+
+            &.mobile-card {
+                display: block;
+            }
+        }
+
+        @media (max-width: 720px) {
+            font-size: 0.7rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &.opened { 
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            width: 100%;
+            height: auto;
+            border: 3px solid #fff;
+            border-radius: 5px;
+            transform: none;
+
+            .overlay {
+                opacity: 0.7;
+            }
+            .info_panel {
+                display: block;
+                opacity: 1;
+            }                
+
+            h6.title {
+                display: none;
+
+                &.mobile-card {
+                    position: absolute;
+                    right: 0;
+                    bottom: 70%;
+                    left: 0;
+                    display: block;
+                    padding: 19px;
+                    font-size: 1.5rem;
+                }
+            }
+
+            button.close {
+                position: absolute;
+                top: 0;
+                right: 0px;
+                z-index: 999;
+                display: block;
+                width: 75px;
+                height: 60px;
+                font-size: 50px;
+                line-height: 20px;
+                color: #fff;
+                background: transparent;
+                border: none;
+
+                span {
+                    vertical-align: text-top;
+                }
+            }
+        }
+    }
+    
+    @media (max-width: 720px) {
+        background-color: transparent;
+    }    
+}
