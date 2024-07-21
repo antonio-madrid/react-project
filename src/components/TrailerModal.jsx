@@ -2,11 +2,11 @@ import Popup from "reactjs-popup";
 import YouTubePlayer from "react-player/youtube";
 import '../styles/modal.scss'
 
-const TrailerModal = ({videoKey}) => {
-    const trailerUrl = `https://www.youtube.com/watch?v=${videoKey}`;
+const TrailerModal = ({trailerKey}) => {
+    const trailerUrl = `https://www.youtube.com/watch?v=${trailerKey}`;
 
     return (<div>
-            <Popup open={!!videoKey} closeOnDocumentClick>
+            <Popup open={!!trailerKey} closeOnDocumentClick>
                 {close => (
                     <div className='modal-content-wrapper'>
                         <div className="modal">

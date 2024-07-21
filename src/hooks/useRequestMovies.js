@@ -3,8 +3,15 @@ import {hasNextPage, movies, page} from "../data/selectors";
 import {createSearchParams, useSearchParams} from "react-router-dom";
 import {useCallback, useEffect, useRef} from "react";
 import {ENDPOINT_DISCOVER, ENDPOINT_SEARCH} from "../constants";
-import {fetchMovies} from "../service/FetchMovieService"
 import {debounce} from "../utils/debounce";
+import {createAsyncThunk} from "@reduxjs/toolkit";
+
+/** Function to perform the real call to API to fetch movies in Redux */
+export const fetchMovies = createAsyncThunk(
+    'fetch-movies', async (apiUrl) => {
+        const response = await fetch(apiUrl)
+        return response.json()
+    })
 
 /** Custom Hook for managing movies fetching processes */
 export const useRequestMovies = () => {

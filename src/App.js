@@ -14,7 +14,7 @@ const App = () => {
   const {searchMovies, observedNode} = useRequestMovies();
 
 
-  const { viewTrailer, videoKey, isTrailerModalActive } = useRequestTrailers();
+  const { viewTrailer, trailerKey, isTrailerModalActive } = useRequestTrailers();
 
 
   return (
@@ -22,7 +22,7 @@ const App = () => {
         <Header searchMovies={searchMovies} />
 
         <div className="container">
-          {isTrailerModalActive ? <TrailerModal videoKey={videoKey}></TrailerModal> : null}
+          {isTrailerModalActive ? <TrailerModal trailerKey={trailerKey}></TrailerModal> : null}
 
           <Routes>
             <Route path="/" element={<Movies observedNode={observedNode} viewTrailer={viewTrailer} closeCard={null}/>}/>
