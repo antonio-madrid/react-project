@@ -69,11 +69,9 @@ export const useRequestMovies = () => {
                 if (movies || movies.length > 0) {
                     fetchMoviesWithQuery(query, pageCount + 1);
                 }
-                console.log('is intersecting')
                 observerRef.current?.disconnect();
-            } else {
-                console.log('is not intersecting')
             }
+
         }, [isNextPage, fetchMoviesWithQuery, pageCount, searchQuery]
     )
 
@@ -91,7 +89,7 @@ export const useRequestMovies = () => {
         observerRef.current = new IntersectionObserver(loadMoreMovies, {
             threshold: 1.0,
             root: null,
-            rootMargin: '10px'
+            rootMargin: '100px'
         });
         if (observerRef.current && observedNode.current) {
             observerRef.current?.observe(observedNode.current);
