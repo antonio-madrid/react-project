@@ -45,7 +45,7 @@ const Header = ({searchMovies}) => {
                         onChange={handleInputChange}
                         value={inputValue}
                         className="form-control rounded"
-                        placeholder="REACT INPUT"
+                        placeholder="Search movies..."
                         aria-label="Search movies"
                         aria-describedby="search-addon"
                         debounceTimeout={500}
