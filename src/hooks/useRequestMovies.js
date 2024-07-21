@@ -4,6 +4,7 @@ import {createSearchParams, useSearchParams} from "react-router-dom";
 import {useCallback, useEffect, useRef} from "react";
 import {ENDPOINT_DISCOVER, ENDPOINT_SEARCH} from "../constants";
 import {fetchMovies} from "../service/FetchMovieService"
+import {debounce} from "../utils/debounce";
 
 /** Custom Hook for managing movies fetching processes */
 export const useRequestMovies = () => {
@@ -34,12 +35,14 @@ export const useRequestMovies = () => {
         }, [dispatch, setSearchParams]
     )
 
-    /** Encapsulate fetchMoviesWithQuery to add a small delay */
+
+    /** Encapsulate fetchMoviesWithQuery to a debounce */
     const searchMovies = useCallback(
         (query) => {
-            // Delay request to avoid DDoS
-            setTimeout(() => fetchMoviesWithQuery(query), 500);
-        }, [fetchMoviesWithQuery]
+            // Reduce the amount of API requests
+            const debouncedFetch = debounce(() => fetchMoviesWithQuery(query), 500);
+            debouncedFetch();
+        }, []
     );
 
     const observerRef = useRef(null);
@@ -66,6 +69,7 @@ export const useRequestMovies = () => {
             }
         }, [isNextPage, fetchMoviesWithQuery, pageCount, searchQuery]
     )
+
 
     /** Initiates first movie fetching */
     useEffect(() => {
