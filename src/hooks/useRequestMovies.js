@@ -74,6 +74,8 @@ export const useRequestMovies = () => {
     /** Initiates first movie fetching */
     useEffect(() => {
         fetchMoviesWithQuery();
+    //     Keep array of dependencies empty to avoid endless fetching & search errors
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 

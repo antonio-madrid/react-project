@@ -1,6 +1,5 @@
 import Movie from './Movie'
 import '../styles/movies.scss'
-import {useRequestMovies} from "../hooks/useRequestMovies";
 import {useSelector} from "react-redux";
 import { movies} from "../data/selectors";
 
