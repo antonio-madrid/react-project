@@ -1,0 +1,28 @@
+.starred {
+  
+    footer {
+        margin-top: 50px;
+
+        .total-price {
+            font-size: 1.8rem;
+        }
+
+        .btn {
+            width: auto;
+            padding: 0 20px;                   
+            font-size: 0.8rem;
+            background: red;
+            border: none;
+        }
+
+        .back-button {
+            color: #000;
+            background: #efefef;
+        }
+
+        .back-button:hover {
+            background: #dedede;
+        }
+    }
+}
+  
