@@ -10,12 +10,9 @@ import TrailerModal from "./components/TrailerModal";
 import {useRequestTrailers} from "./hooks/useRequestTrailers";
 
 const App = () => {
-  // Avoid multiple requests to the API
   const {searchMovies, observedNode} = useRequestMovies();
 
-
   const { viewTrailer, trailerKey, isTrailerModalActive } = useRequestTrailers();
-
 
   return (
       <div className="App">
